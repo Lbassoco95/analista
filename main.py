@@ -12,7 +12,7 @@ import argparse
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from supabase_client import SupabaseManager
-from modules.b2broker import B2BrokerScraper
+# from modules.wallester import WallesterScraper
 from modules.wallester import WallesterScraper
 from modules.sumsub import SumsubScraper
 
@@ -48,8 +48,8 @@ def main():
     
     # Definir scrapers disponibles
     scrapers = {
-        'b2broker': (B2BrokerScraper, 'B2Broker'),
-        'wallester': (WallesterScraper, 'Wallester'),
+        # 'b2broker': (B2BrokerScraper, 'B2Broker'),
+        # 'wallester': (WallesterScraper, 'Wallester'),
         'sumsub': (SumsubScraper, 'Sumsub')
     }
     
