@@ -1,0 +1,302 @@
+{
+  "functions": [
+    {
+      "name": "guardar_feedback",
+      "description": "Guarda una retroalimentación de producto o estrategia comercial desde el chat de GPT",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "producto": {
+            "type": "string",
+            "description": "Nombre del producto o solución evaluada (ej: 'Wallet Crypto', 'KYC', 'Onboarding Remoto')"
+          },
+          "mercado": {
+            "type": "string",
+            "description": "País o sector donde se aplicó (ej: 'México', 'Colombia', 'Perú')"
+          },
+          "observacion": {
+            "type": "string",
+            "description": "Retroalimentación o aprendizaje clave del usuario o cliente"
+          },
+          "categoria": {
+            "type": "string",
+            "description": "Categoría del feedback",
+            "enum": ["precio", "producto", "mercado", "competencia", "regulacion", "usuario", "tecnico", "general"]
+          },
+          "impacto": {
+            "type": "string",
+            "description": "Impacto del feedback en el negocio",
+            "enum": ["alto", "medio", "bajo"]
+          },
+          "accion_recomendada": {
+            "type": "string",
+            "description": "Acción específica recomendada basada en el feedback"
+          },
+          "fuente": {
+            "type": "string",
+            "description": "Fuente del feedback",
+            "default": "gpt_chat"
+          }
+        },
+        "required": ["producto", "mercado", "observacion"]
+      }
+    },
+    {
+      "name": "obtener_feedback",
+      "description": "Obtiene retroalimentación existente para un producto o mercado específico",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "producto": {
+            "type": "string",
+            "description": "Nombre del producto para filtrar"
+          },
+          "mercado": {
+            "type": "string",
+            "description": "País o mercado para filtrar"
+          },
+          "categoria": {
+            "type": "string",
+            "description": "Categoría específica para filtrar"
+          },
+          "limite": {
+            "type": "integer",
+            "description": "Número máximo de resultados",
+            "default": 10
+          }
+        }
+      }
+    },
+    {
+      "name": "analizar_feedback_producto",
+      "description": "Analiza retroalimentación específica de un producto en un mercado",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "producto": {
+            "type": "string",
+            "description": "Nombre del producto a analizar",
+            "required": true
+          },
+          "mercado": {
+            "type": "string",
+            "description": "País o mercado a analizar",
+            "required": true
+          }
+        },
+        "required": ["producto", "mercado"]
+      }
+    },
+    {
+      "name": "procesar_retroalimentacion",
+      "description": "Procesa retroalimentación y genera recomendaciones de mejora",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "producto": {
+            "type": "string",
+            "description": "Nombre del producto",
+            "required": true
+          },
+          "mercado": {
+            "type": "string",
+            "description": "País o mercado",
+            "required": true
+          }
+        },
+        "required": ["producto", "mercado"]
+      }
+    },
+    {
+      "name": "obtener_estadisticas_feedback",
+      "description": "Obtiene estadísticas generales de retroalimentación",
+      "parameters": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "analizar_mercado_completo",
+      "description": "Realiza análisis completo de mercado para un producto en un país",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "consulta": {
+            "type": "string",
+            "description": "Consulta en lenguaje natural sobre el análisis de mercado",
+            "required": true
+          },
+          "contexto": {
+            "type": "object",
+            "description": "Contexto adicional para el análisis"
+          }
+        },
+        "required": ["consulta"]
+      }
+    },
+    {
+      "name": "generar_estrategia_comercial",
+      "description": "Genera estrategia comercial completa para un producto",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "producto": {
+            "type": "string",
+            "description": "Producto a analizar",
+            "required": true
+          },
+          "pais": {
+            "type": "string",
+            "description": "País objetivo",
+            "required": true
+          },
+          "segmento": {
+            "type": "string",
+            "description": "Segmento de mercado específico"
+          },
+          "comparables": {
+            "type": "array",
+            "description": "Datos de competidores"
+          }
+        },
+        "required": ["producto", "pais"]
+      }
+    },
+    {
+      "name": "generar_plan_producto",
+      "description": "Genera plan completo de lanzamiento de producto",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "producto": {
+            "type": "string",
+            "description": "Producto a lanzar",
+            "required": true
+          },
+          "pais": {
+            "type": "string",
+            "description": "País objetivo",
+            "required": true
+          },
+          "descripcion": {
+            "type": "string",
+            "description": "Descripción adicional del producto"
+          },
+          "restricciones": {
+            "type": "array",
+            "description": "Restricciones o consideraciones especiales"
+          }
+        },
+        "required": ["producto", "pais"]
+      }
+    },
+    {
+      "name": "consultar_historial_analisis",
+      "description": "Consulta historial de análisis estratégicos realizados",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "filtros": {
+            "type": "object",
+            "description": "Filtros para la consulta"
+          }
+        }
+      }
+    },
+    {
+      "name": "analizar_retroalimentacion_ventas",
+      "description": "Analiza retroalimentación de ventas y genera mejoras",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id_analisis": {
+            "type": "string",
+            "description": "ID del análisis original",
+            "required": true
+          },
+          "datos_ventas": {
+            "type": "object",
+            "description": "Datos de ventas reales",
+            "properties": {
+              "precio_real": {
+                "type": "number",
+                "description": "Precio real implementado"
+              },
+              "adopcion_real": {
+                "type": "number",
+                "description": "Porcentaje de adopción real"
+              },
+              "mrr_real": {
+                "type": "number",
+                "description": "MRR real alcanzado"
+              },
+              "cac_real": {
+                "type": "number",
+                "description": "CAC real"
+              },
+              "churn_real": {
+                "type": "number",
+                "description": "Churn real"
+              },
+              "periodo": {
+                "type": "string",
+                "description": "Período de análisis"
+              }
+            }
+          }
+        },
+        "required": ["id_analisis", "datos_ventas"]
+      }
+    }
+  ],
+  "system_prompt": "Eres un asistente estratégico especializado en análisis de mercado, estrategia comercial y planificación de productos. Puedes recopilar información de múltiples fuentes, generar estrategias completas, crear planes de lanzamiento y procesar retroalimentación de usuarios. Tu objetivo es ayudar a tomar decisiones estratégicas basadas en datos y análisis profundos del mercado. Cuando recibas retroalimentación de usuarios, automáticamente la guardarás en la base de datos para mantener un historial de insights y aprendizajes.",
+  "instructions": [
+    "1. Siempre analiza el contexto completo antes de responder",
+    "2. Cuando recibas retroalimentación, guárdala automáticamente usando guardar_feedback",
+    "3. Proporciona análisis basados en datos y múltiples fuentes",
+    "4. Genera recomendaciones accionables y específicas",
+    "5. Mantén un historial de análisis y retroalimentación",
+    "6. Usa el análisis de retroalimentación para mejorar futuras estrategias",
+    "7. Proporciona insights tanto cualitativos como cuantitativos",
+    "8. Considera el contexto geográfico y regulatorio de cada mercado"
+  ],
+  "examples": [
+    {
+      "user": "El producto Wallet + KYC en Colombia tuvo baja adopción porque el onboarding fue confuso.",
+      "assistant": "Entiendo el problema. Voy a guardar esta retroalimentación importante y analizar las implicaciones para la estrategia.",
+      "function_call": {
+        "name": "guardar_feedback",
+        "arguments": {
+          "producto": "Wallet + KYC",
+          "mercado": "Colombia",
+          "observacion": "Baja adopción debido a onboarding confuso",
+          "categoria": "producto",
+          "impacto": "alto",
+          "accion_recomendada": "Rediseñar proceso de onboarding para mayor claridad"
+        }
+      }
+    },
+    {
+      "user": "¿Qué sabes del mercado de wallets en México?",
+      "assistant": "Te ayudo con un análisis completo del mercado de wallets en México. Voy a recopilar información de múltiples fuentes.",
+      "function_call": {
+        "name": "analizar_mercado_completo",
+        "arguments": {
+          "consulta": "Análisis de mercado de wallets en México, tendencias, competencia y oportunidades"
+        }
+      }
+    },
+    {
+      "user": "Necesitamos una estrategia para lanzar KYC en Perú",
+      "assistant": "Perfecto, voy a generar una estrategia comercial completa para el lanzamiento de KYC en Perú.",
+      "function_call": {
+        "name": "generar_estrategia_comercial",
+        "arguments": {
+          "producto": "KYC",
+          "pais": "Perú",
+          "segmento": "fintechs"
+        }
+      }
+    }
+  ]
+} 
