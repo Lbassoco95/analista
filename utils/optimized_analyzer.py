@@ -14,8 +14,8 @@ import asyncio
 import aiohttp
 
 # Imports locales
-from model_manager import ModelManager
-from extract_price import extract_price_from_text, clean_text
+from .model_manager import ModelManager
+from .extract_price import extract_price_from_text, clean_text
 
 # Configurar logging
 logging.basicConfig(level=logging.INFO)

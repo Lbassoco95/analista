@@ -369,7 +369,7 @@ class PineconeManager:
                 best_match = similar_results[0]
                 
                 # Importar función de validación
-                from utils.extract_price import validate_cross_reference
+                from .extract_price import validate_cross_reference
                 
                 validation = validate_cross_reference(
                     text, 

@@ -218,7 +218,7 @@ Responde de manera estructurada y profesional en español.
         """
         try:
             if not pinecone_manager:
-                from utils.pinecone_manager import get_pinecone_manager
+                from .pinecone_manager import get_pinecone_manager
                 pinecone_manager = get_pinecone_manager()
             
             # Buscar datos de cada proveedor
@@ -311,7 +311,7 @@ Responde en español de manera estructurada.
         """
         try:
             if not pinecone_manager:
-                from utils.pinecone_manager import get_pinecone_manager
+                from .pinecone_manager import get_pinecone_manager
                 pinecone_manager = get_pinecone_manager()
             
             # Obtener estadísticas

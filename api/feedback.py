@@ -146,7 +146,7 @@ async def obtener_feedback(
         if response.status_code == 200:
             data = response.json()
             logger.info(f"✅ {len(data)} feedbacks encontrados")
-            return data['data'] or []
+            return data or []
         else:
             raise HTTPException(
                 status_code=response.status_code,
@@ -185,9 +185,7 @@ async def analizar_feedback_producto(producto: str, mercado: str):
         response = requests.get(url, headers=headers)
         
         if response.status_code == 200:
-            data = response.json()
-            feedbacks = data['data']
-            
+            feedbacks = response.json()
             if not feedbacks:
                 return {
                     'producto': producto,
@@ -371,9 +369,7 @@ async def obtener_estadisticas():
         response = requests.get(url, headers=headers)
         
         if response.status_code == 200:
-            data = response.json()
-            feedbacks = data['data']
-            
+            feedbacks = response.json()
             if not feedbacks:
                 return {
                     'total_feedbacks': 0,
