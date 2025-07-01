@@ -112,4 +112,4 @@ def save_to_supabase(supabase_manager, results: List[Dict[str, Any]]) -> int:
         return 0
 
 if __name__ == "__main__":
-    main() 
+    main()
